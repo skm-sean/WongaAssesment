@@ -8,7 +8,7 @@ public class RabbitMqBase : IDisposable
     private readonly ILogger _logger;
     private readonly ConnectionFactory _connectionFactory;
 
-    private IModel? Channel { get; set; }
+    protected IModel? Channel { get; set; }
     private IConnection? _connection;
     
     protected RabbitMqBase(
