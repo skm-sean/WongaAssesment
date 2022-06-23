@@ -1,3 +1,22 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using RabbitMQ.Client;
+using Serilog;
+using ServiceB.Services;
 
-Console.WriteLine("Hello, World!");
+var host = Host.CreateDefaultBuilder();
+
+host.ConfigureServices((context, services) =>
+{
+    services.AddHostedService<ConsumerHostedService>();
+    services.AddSingleton<ILogger>(new LoggerConfiguration()
+        .WriteTo.Console()
+        .CreateLogger());
+    services.AddSingleton(new ConnectionFactory
+    {
+        Uri = new Uri("amqp://guest:guest@localhost:5672"),
+        DispatchConsumersAsync = true
+    });
+});
+
+host.Build().Run();
