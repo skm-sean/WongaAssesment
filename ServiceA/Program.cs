@@ -14,6 +14,7 @@ host.ConfigureServices((context, services) =>
     services.AddHostedService<ProducerHostedService>();
     
     services.AddSingleton<RabbitMqProducerBase<RabbitMqMessage<PayloadBase>>>();
+    services.AddSingleton<IProducerService, ProducerService>();
     services.AddSingleton<ILogger>(new LoggerConfiguration()
         .WriteTo.Console()
         .CreateLogger());

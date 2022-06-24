@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceB", "ServiceB\Servic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{399C6589-5F27-4AD8-9A14-D296B0543442}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WongaAssessment.Tests", "WongaAssessment.Tests\WongaAssessment.Tests.csproj", "{92004B91-47EE-472D-B865-A994D4AD7A2F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{399C6589-5F27-4AD8-9A14-D296B0543442}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{399C6589-5F27-4AD8-9A14-D296B0543442}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{399C6589-5F27-4AD8-9A14-D296B0543442}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92004B91-47EE-472D-B865-A994D4AD7A2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92004B91-47EE-472D-B865-A994D4AD7A2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92004B91-47EE-472D-B865-A994D4AD7A2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92004B91-47EE-472D-B865-A994D4AD7A2F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

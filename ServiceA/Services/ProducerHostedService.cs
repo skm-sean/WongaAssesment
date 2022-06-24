@@ -7,17 +7,13 @@ namespace ServiceA.Services;
 
 public class ProducerHostedService : BackgroundService
 {
-    
-    private readonly RabbitMqProducerBase<RabbitMqMessage<PayloadBase>> _producer;
-    private readonly ILogger _logger;
+    private readonly IProducerService _producerService;
 
     public ProducerHostedService(
-        RabbitMqProducerBase<RabbitMqMessage<PayloadBase>> producer,
-        ILogger logger
+        IProducerService producerService
     )
     {
-        _producer = producer;
-        _logger = logger;
+        _producerService = producerService;
     } 
     
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
@@ -26,29 +22,10 @@ public class ProducerHostedService : BackgroundService
         {
             Console.WriteLine("Please enter your name: ");
             var name = Console.ReadLine();
-            var message = $"Hello my name is, {name}";
-            PublishMessage(message, name);
-            Console.WriteLine($"Hello {name}!");
+            _producerService.SendMessage(name);
+            
         }
 
         await Task.CompletedTask;
-    }
-
-    
-
-    private void PublishMessage(string? message, string? name)
-    {
-        var payload = new PayloadBase
-        {
-            Message = message,
-            Name = name
-        };
-
-        var rabbitMqPayload = new RabbitMqMessage<PayloadBase>
-        {
-            Payload = payload,
-        };
-        
-        _producer.Publish(rabbitMqPayload);
     }
 }
