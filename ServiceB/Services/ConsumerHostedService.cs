@@ -25,11 +25,11 @@ public class ConsumerHostedService : RabbitMqConsumerBase, IHostedService
         {
             var consumer = new AsyncEventingBasicConsumer(Channel);
             consumer.Received += OnMessageReceived;
-            Channel.BasicConsume(queue: "rabbitQue", autoAck: false, consumer: consumer);
+            Channel.BasicConsume(queue: "rabbitQue", autoAck: false, consumer: consumer); // Todo: get from config
         }
         catch (Exception ex)
         {
-            _logger.Error(ex, "Unable to subscribe to que - {Que}", "rabbitQue");
+            _logger.Error(ex, "Unable to subscribe to que - {Que}", "rabbitQue"); // Todo: get from config
         }
     }
 

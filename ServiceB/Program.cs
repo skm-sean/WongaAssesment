@@ -14,7 +14,7 @@ host.ConfigureServices((context, services) =>
         .CreateLogger());
     services.AddSingleton(new ConnectionFactory
     {
-        Uri = new Uri("amqp://guest:guest@localhost:5672"),
+        Uri = new Uri("amqp://guest:guest@localhost:5672"), // Todo: get from config
         DispatchConsumersAsync = true
     });
 });

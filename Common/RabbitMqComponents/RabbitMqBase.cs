@@ -34,7 +34,7 @@ public class RabbitMqBase : IDisposable
         
         Channel = _connection.CreateModel();
         Channel.QueueDeclare(
-            queue: "rabbitQue",
+            queue: "rabbitQue", // Todo: get from config
             durable: true,
             exclusive: false,
             autoDelete: false,
@@ -43,7 +43,7 @@ public class RabbitMqBase : IDisposable
 
     private void ConnectionOnConnectionShutdown(object? sender, ShutdownEventArgs e)
     {
-        
+        //Todo: handle connection shutdown and create a full reconnection
     }
     
     public void Dispose()

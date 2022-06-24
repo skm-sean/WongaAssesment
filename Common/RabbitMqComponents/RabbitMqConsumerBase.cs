@@ -37,11 +37,11 @@ public class RabbitMqConsumerBase : RabbitMqBase
                 return Task.CompletedTask;
             }
             
-            Console.WriteLine($"Hello {message?.Payload?.Name}, I am your father!");
+            Console.WriteLine($"Hello {message.Payload?.Name}, I am your father!");
         }
         catch (Exception ex)
         {
-            _logger.Error(ex, "Unable to receive message from que - {}", args.RoutingKey);
+            _logger.Error(ex, "Unable to receive message from que - {RoutingKey}", args.RoutingKey);
         }
         finally
         {

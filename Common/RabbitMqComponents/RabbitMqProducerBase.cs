@@ -22,11 +22,11 @@ public sealed class RabbitMqProducerBase<T> : RabbitMqBase
         try
         {
             var body = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(args));
-            Channel.BasicPublish("", "rabbitQue", null, body);
+            Channel.BasicPublish("", "rabbitQue", null, body); // Todo: get from config
         }
         catch (Exception ex)
         {
-            _logger.Error(ex, "Unable to publish message to que - {Que}", "rabbitQue");
+            _logger.Error(ex, "Unable to publish message to que - {Que}", "rabbitQue"); // Todo: get from config
         }
         
     }
